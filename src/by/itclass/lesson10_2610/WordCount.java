@@ -26,8 +26,7 @@ public class WordCount {
         //как посчитать кол-во слов
         Map<String, Integer> counts = new TreeMap<>();
 
-        for (String word:
-             words) {
+        for (String word: words) {
             if (!counts.containsKey(word)){
                 counts.put(word, 1);
             }else  {

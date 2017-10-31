@@ -17,7 +17,7 @@ public class LegacyCoiiections {
         dictionary.put("Петров", "+375293242132");
         dictionary.put("Иванов", "+3752932231132");
 
-        //Vector - асшияемый массив (устаревший), заменять на ArrayList
+        //Vector - расшияемый массив (устаревший), заменять на ArrayList
         Vector<Integer> vector = new Vector<>();
         vector.add(1);
         vector.add(0,2);
