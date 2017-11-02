@@ -12,6 +12,10 @@ public class Share implements Storable {
     }
 
 
+    public double getPrice() {
+        return price;
+    }
+
     @Override
     public int getMaxAmount() {
         return 0;

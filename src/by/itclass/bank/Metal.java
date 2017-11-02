@@ -1,6 +1,6 @@
 package by.itclass.bank;
 
-public enum Metal {
+public enum Metal implements Storable{
 
     SILVER(1.01),
     GOLD(77.3),
@@ -22,5 +22,9 @@ public enum Metal {
         return price;
     }
 
-
+        @Override
+        public int getMaxAmount() {
+            return 0;
+        }
 }
+
