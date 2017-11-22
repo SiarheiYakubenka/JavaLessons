@@ -6,16 +6,16 @@ import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Task1 {
+public class Task01 {
     public static void main(String[] args) {
         int sum = 0;
         try {
-            FileReader fileReader = new FileReader("c:\\Users\\IT Class\\IdeaProjects\\JavaLessons\\task01.txt");
+            FileReader fileReader = new FileReader("task01.txt");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             String line = bufferedReader.readLine();
 
-            Pattern pattern = Pattern.compile("\\s\\d+\\s");
+            Pattern pattern = Pattern.compile("^(\\d+\\s)|\\s\\d+\\s|\\s\\d+$|\\s\\d+,");
 
             Matcher matcher =  pattern.matcher(line);
 
@@ -26,8 +26,12 @@ public class Task1 {
                     sum+= Integer.parseInt(matcher.group().trim());
                 }
                 line = bufferedReader.readLine();
-
+                if (line != null) {
+                    matcher = pattern.matcher(line);
+                }
             }
+
+
             bufferedReader.close();
 
 
