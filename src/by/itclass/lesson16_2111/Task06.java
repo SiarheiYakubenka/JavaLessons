@@ -1,14 +1,15 @@
 package by.itclass.lesson16_2111;
 
+
 import java.io.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Task02 {
-    public static void main(String[] args)  {
-
+public class Task06 {
+    public static void main(String[] args) {
         StringBuilder newFile = new StringBuilder();
-        File file = new File("task02.txt");
+        StringBuffer newline = new StringBuffer();
+        File file = new File("task06.txt");
 
         try {
 
@@ -17,15 +18,23 @@ public class Task02 {
 
             String line = bufferedReader.readLine();
 
+            Pattern pattern = Pattern.compile("([^.!?]+[.!?])");
 
+            Matcher matcher =  pattern.matcher(line);
 
 
             while (line != null){
 
-                line =  line.replaceAll("([0-9]{1,3}\\.){3}[0-9]{1,3}", "[засекречено]");
-                newFile.append(line);
-                newFile.append("\r\n");
+                while (matcher.find()){
+                    newline.append(matcher.group()).reverse();
+                    newFile.append(newline);
+                    newline.setLength(0);
+                }
+                newFile.append("\n");
                 line = bufferedReader.readLine();
+                if (line != null) {
+                    matcher = pattern.matcher(line);
+                }
 
             }
             bufferedReader.close();
@@ -36,7 +45,7 @@ public class Task02 {
         }
 
         try {
-            FileWriter fileWriter = new FileWriter("task02_out.txt");
+            FileWriter fileWriter = new FileWriter("task06_out.txt");
             fileWriter.write(String.valueOf(newFile));
             fileWriter.flush();
             fileWriter.close();
@@ -46,5 +55,4 @@ public class Task02 {
         }
 
     }
-
 }

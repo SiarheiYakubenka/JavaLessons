@@ -17,7 +17,7 @@ public class Task03 {
 
             String line = bufferedReader.readLine();
 
-            Pattern pattern = Pattern.compile("[А-ЯA-Z]*");
+            Pattern pattern = Pattern.compile("([^.!?]+[.!?])");
 
             Matcher matcher =  pattern.matcher(line);
 
@@ -25,8 +25,9 @@ public class Task03 {
             while (line != null){
 
                 while (matcher.find()){
-                 newline =  newline.append(matcher.group()).reverse();
-                 newFile.append(newline).append(".");
+                    newline.append(matcher.group()).reverse();
+                    newFile.append(newline);
+                    newline.setLength(0);
                 }
                 newFile.append("\n");
                 line = bufferedReader.readLine();
@@ -43,7 +44,7 @@ public class Task03 {
         }
 
         try {
-            FileWriter fileWriter = new FileWriter(file);
+            FileWriter fileWriter = new FileWriter("task03_out.txt");
             fileWriter.write(String.valueOf(newFile));
             fileWriter.flush();
             fileWriter.close();
