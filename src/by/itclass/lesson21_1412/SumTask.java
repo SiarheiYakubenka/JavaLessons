@@ -1,4 +1,4 @@
-package by.itclass.lessons21_1412;
+package by.itclass.lesson21_1412;
 
 //Задача сложения элементов части массива
 public class SumTask implements  Runnable{
